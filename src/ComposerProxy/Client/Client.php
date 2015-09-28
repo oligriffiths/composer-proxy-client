@@ -43,7 +43,7 @@ class Client
 
 		$extra = $package->getExtra();
 
-		$proxyUrls = (array)Arry::get($extra, 'composer-proxy.url');
+		$proxyUrls = isset($extra['composer-proxy']['url']) ? $extra['composer-proxy']['url'] : null;
 		if ( ! $proxyUrls) {
 			$io->write('<warning>No composer proxy url defined in composer.json. You might not use your proxy when fetching packages.</warning>');
 			return;
